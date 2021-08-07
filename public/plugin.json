@@ -1,0 +1,30 @@
+{
+  "main": "index.html",
+  "logo": "logo.png",
+  "platform": ["win32", "darwin", "linux"],
+  "preload": "preload.js",
+  "development": {
+    "main": "http://127.0.0.1:3000"
+  },
+  "features": [
+    {
+      "code": "main",
+      "explain": "一个方便的 markdown 编辑工具",
+      "cmds":["markdown 编辑器"]
+    },
+    {
+      "code": "copy",
+      "explain": "复制文件预览及编辑",
+      "cmds": [
+        {
+          "type": "files",
+          "label": "markdown 文件预览",
+          "fileType": "file",
+          "match": "/\\.md$/i",
+          "minLength": 1,
+          "maxLength": 1
+        }
+      ]
+    }
+  ]
+}
