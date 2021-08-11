@@ -1,22 +1,35 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + Vite" />
+  <Editor :content="state.content" :path="state.path" @save="handleSave" />
 </template>
 
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+import {reactive} from 'vue';
+import Editor from './components/Editor.vue'
 
-// This starter template is using Vue 3 experimental <script setup> SFCs
-// Check out https://github.com/vuejs/rfcs/blob/master/active-rfcs/0040-script-setup.md
+const state = reactive({
+  content: "",
+  path: "",
+})
+
+function handleSave(path, content) {
+  if (path && content) {
+    writeMarkdownFile(path, content)
+    utools.showNotification("保存成功");
+  }
+}
+
+utools.onPluginEnter(({code, type, payload}) => {
+  console.log('用户进入插件', code, type, payload)
+
+  if (type === 'files') {
+    state.path = payload[0].path;
+    state.content = readMarkdownFile(state.path)
+  } else {
+    state.path = ""
+    state.content = ""
+  }
+})
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
