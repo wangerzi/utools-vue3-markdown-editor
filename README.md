@@ -1,6 +1,9 @@
 # utools-vue3-markdown-editor
 基于 vue3 + vite + elementui + markd + keyboardjs + highlight.js 实现的清爽 Markdown 编辑器
 
+Github: [https://github.com/wangerzi/utools-vue3-markdown-editor](https://github.com/wangerzi/utools-vue3-markdown-editor)
+Gitee: [https://gitee.com/wangerzi/utools-vue3-markdown-editor](https://gitee.com/wangerzi/utools-vue3-markdown-editor)
+
 ![screen](./screen.gif)
 
 ## 功能
@@ -12,7 +15,7 @@
 ## 进阶需求
 
 - 支持相对路径图片显示
-- 图床
+- 图床支持
 
 ## 如何部署
 
