@@ -4,6 +4,7 @@
 
 <script setup>
 import {reactive} from 'vue';
+import { ElMessage } from 'element-plus'
 import Editor from './components/Editor.vue'
 
 const state = reactive({
@@ -12,9 +13,17 @@ const state = reactive({
 })
 
 function handleSave(path, content) {
-  if (path && content) {
+  if (path && content !== state.content) {
     writeMarkdownFile(path, content)
-    utools.showNotification("保存成功");
+    ElMessage.success({
+      message: '保存成功',
+      type: 'success'
+    });
+
+    if (state.path === '') {
+      state.path = path
+      state.content = readMarkdownFile(state.path)
+    }
   }
 }
 

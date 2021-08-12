@@ -88,10 +88,10 @@ function handleSaveAs() {
 }
 
 // keyboard
-keyboard.bind("ctrl > s", () => {
+keyboard.bind("mod > s", () => {
   handleSave()
 });
-keyboard.bind("ctrl + shift > s", () => {
+keyboard.bind("mod + shift > s", () => {
   handleSaveAs()
 });
 

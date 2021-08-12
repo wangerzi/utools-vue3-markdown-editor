@@ -6,8 +6,23 @@
 ## 功能
 
 - 支持复制文件触发编辑
-- `Ctrl + S` 即时保存，`Ctrl + Shift + S` 另存为
+- 支持 `Ctrl/Command + S` 即时保存，`Ctrl/Command + Shift + S` 另存为
 - 支持代码高亮，即时渲染 Github 样式的预览
+
+## 进阶需求
+
+- 支持相对路径图片显示
+- 图床
+
+## 如何部署
+
+```shell
+$ npm i
+$ npm build
+$ npm run dev # 运行测试环境
+```
+
+将 `dist/plugin.json` 拖动到 Utools 开发者工具，即可进行调试和打包
 
 ## 开源协议
 
