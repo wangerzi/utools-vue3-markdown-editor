@@ -1,6 +1,12 @@
 <template>
   <div class="container">
-    <el-divider content-position="center">{{props.path?('当前：'+props.path):'临时文件'}}</el-divider>
+    <el-divider content-position="center">
+      <template v-if="state.path">
+        当前：
+        <el-link type="primary" class="file-open" @click="handleOpenFile">{{state.path}}</el-link>
+      </template>
+      <template v-else>临时文件</template>
+    </el-divider>
     <el-row :gutter="30">
       <el-col :span="12">
         <el-input type="textarea" placeholder="markdown..." resize="none" :rows="19" :autofocus="true" v-model="state.content"></el-input>
@@ -25,6 +31,7 @@
 import { defineProps, defineEmits, reactive, watch, computed } from 'vue'
 import marked from 'marked'
 import "github-markdown-css/github-markdown.css"
+import MyRenderer from "./Renderer"
 
 import hljs from 'highlight.js'
 import "highlight.js/scss/default.scss"
@@ -32,7 +39,7 @@ import "highlight.js/scss/default.scss"
 import keyboard from "keyboardjs"
 
 marked.setOptions({
-  renderer: new marked.Renderer(),
+  renderer: new MyRenderer(),
   highlight: function(code, lang) {
     const language = hljs.getLanguage(lang) ? lang : 'plaintext';
     return hljs.highlight(code, { language }).value;
@@ -63,7 +70,7 @@ watch(() => props.path, () => {
   if (props.path) {
     console.log('basic path', props.path, getFileDirectory(props.path));
     marked.setOptions({
-      baseUrl: "file:///" + getFileDirectory(props.path)
+      baseUrl: getFileDirectory(props.path)
     })
   } else {
     console.log("props path is empty");
@@ -103,6 +110,10 @@ function handleSaveAs() {
   if (savePath) {
     emits('save', savePath, state.content);
   }
+}
+
+function handleOpenFile() {
+  utools.shellShowItemInFolder(state.path);
 }
 
 // keyboard

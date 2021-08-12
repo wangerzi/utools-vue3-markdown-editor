@@ -13,15 +13,17 @@ Gitee: [https://gitee.com/wangerzi/utools-vue3-markdown-editor](https://gitee.co
 - 支持复制文件触发编辑
 - 支持 `Ctrl/Command + S` 即时保存，`Ctrl/Command + Shift + S` 另存为
 - 支持代码高亮，即时渲染 Github 样式的预览
+- 支持相对路径图片显示
+- 打开文件所在路径
 
 ## 进阶需求
 
-- 支持相对路径图片显示
+- 修改文件名
 - 图床支持
-- 文件变化后，自动载入
+- 文件外部变化后，自动载入
 - 导出图片
 - 导出 PDF
-- 修改文件名
+- 导出 HTML
 
 ## 如何部署
 
