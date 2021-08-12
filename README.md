@@ -4,6 +4,8 @@
 Github: [https://github.com/wangerzi/utools-vue3-markdown-editor](https://github.com/wangerzi/utools-vue3-markdown-editor)
 Gitee: [https://gitee.com/wangerzi/utools-vue3-markdown-editor](https://gitee.com/wangerzi/utools-vue3-markdown-editor)
 
+本插件编写过程已发表博客：[使用 Vue3 + vite + elementUI 开发一个 Utools Markdown 编辑器插件](https://blog.csdn.net/qq_34177812/article/details/119639897)
+
 ![screen](./screen.gif)
 
 ## 功能
@@ -16,6 +18,10 @@ Gitee: [https://gitee.com/wangerzi/utools-vue3-markdown-editor](https://gitee.co
 
 - 支持相对路径图片显示
 - 图床支持
+- 文件变化后，自动载入
+- 导出图片
+- 导出 PDF
+- 修改文件名
 
 ## 如何部署
 

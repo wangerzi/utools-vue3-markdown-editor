@@ -59,6 +59,20 @@ watch(() => props.content, () => {
 
 watch(() => props.path, () => {
   state.path = props.path
+
+  if (props.path) {
+    console.log('basic path', props.path, getFileDirectory(props.path));
+    marked.setOptions({
+      baseUrl: "file:///" + getFileDirectory(props.path)
+    })
+  } else {
+    console.log("props path is empty");
+    marked.setOptions({
+      baseUrl: null
+    })
+  }
+}, {
+  immediate: true
 })
 
 const renderedContent = computed(() => {

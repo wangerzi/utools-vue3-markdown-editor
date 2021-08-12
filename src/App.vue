@@ -13,7 +13,8 @@ const state = reactive({
 })
 
 function handleSave(path, content) {
-  if (path && content !== state.content) {
+  if ((path && content !== state.content) || state.path !== path) {
+    state.content = content
     writeMarkdownFile(path, content)
     ElMessage.success({
       message: '保存成功',
@@ -22,7 +23,6 @@ function handleSave(path, content) {
 
     if (state.path === '') {
       state.path = path
-      state.content = readMarkdownFile(state.path)
     }
   }
 }

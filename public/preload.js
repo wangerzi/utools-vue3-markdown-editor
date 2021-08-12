@@ -1,4 +1,5 @@
 const fs = require('fs');
+const p = require('path');
 
 console.log("preload js loaded")
 
@@ -24,4 +25,8 @@ window.writeMarkdownFile = function (path, content) {
     fs.writeFileSync(path, content)
     return true;
   }
+}
+
+window.getFileDirectory = function (path) {
+  return p.dirname(path);
 }
