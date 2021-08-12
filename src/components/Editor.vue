@@ -57,6 +57,10 @@ watch(() => props.content, () => {
   state.content = props.content
 })
 
+watch(() => props.path, () => {
+  state.path = props.path
+})
+
 const renderedContent = computed(() => {
   return marked(state.content)
 })
