@@ -1,8 +1,7 @@
 <template>
   <div class="container">
-    <el-divider content-position="center">
+    <el-divider content-position="center" class="divider-content">
       <template v-if="state.path">
-        当前：
         <el-link type="primary" class="file-open" @click="handleOpenFile">{{state.path}}</el-link>
       </template>
       <template v-else>临时文件</template>
@@ -127,6 +126,12 @@ keyboard.bind("mod + shift > s", () => {
 </script>
 
 <style scoped>
+@media (prefers-color-scheme: dark) {
+  .divider-content {
+    background: transparent;
+    color: #fff;
+  }
+}
 .el-row {
   margin-bottom: 20px;
 }
@@ -145,6 +150,7 @@ keyboard.bind("mod + shift > s", () => {
 
   border: 2px solid #eee;
   padding: 10px 20px;
+  background: #fff;
 
   overflow-y: auto;
 }
