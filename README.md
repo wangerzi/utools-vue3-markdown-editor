@@ -18,6 +18,7 @@ Gitee: [https://gitee.com/wangerzi/utools-vue3-markdown-editor](https://gitee.co
 
 ## 进阶需求
 
+- 适配暗黑模式
 - 修改文件名
 - 图床支持
 - 文件外部变化后，自动载入
