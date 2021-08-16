@@ -18,7 +18,10 @@ Gitee: [https://gitee.com/wangerzi/utools-vue3-markdown-editor](https://gitee.co
 
 ## 进阶需求
 
-- 适配暗黑模式
+- 适配暗黑模式 
+- 分离窗口最大化后，编辑框和预览框的高度固定不能自定义 
+- 希望支持TOC标题预览
+- 希望支持切换视图（编辑、预览、边编辑边预览）
 - 修改文件名
 - 图床支持
 - 文件外部变化后，自动载入
